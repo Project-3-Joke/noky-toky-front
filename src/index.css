@@ -109,3 +109,21 @@ nav li {
 .TaskCard {
   background-color: #dfeef9;
 }
+
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+
+.divIconHomePage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-around;
+}

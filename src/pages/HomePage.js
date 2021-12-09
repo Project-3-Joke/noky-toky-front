@@ -1,13 +1,20 @@
 import RandomJoke from "../components/RandomJoke";
+import Logo from "../Images/LOGO1.png";
 
 function HomePage() {
   return (
     <div>
-      <h1>Logo</h1>
+      <img style={{ width: 350 }} src={Logo} />
       <h2>filter cathegory component*</h2>
       <RandomJoke />
-      <h3>heart button*</h3>
-      <h3>next button*</h3>
+      <div className="divIconHomePage">
+        <a href="#" class="previous">
+          &hearts; Like
+        </a>
+        <a href="#" class="next">
+          Next &raquo;
+        </a>
+      </div>
       <h2>Buy merch</h2>
     </div>
   );
