@@ -4,14 +4,14 @@ import Logo from "../Images/LOGO1.png";
 function HomePage() {
   return (
     <div>
-      <img style={{ width: 350 }} src={Logo} />
+      <img style={{ width: 350 }} src={Logo} alt="noky-toky logo" />
       <h2>filter cathegory component*</h2>
       <RandomJoke />
       <div className="divIconHomePage">
-        <a href="#" class="previous">
+        <a href="#" className="previous">
           &hearts; Like
         </a>
-        <a href="#" class="next">
+        <a href="#" className="next">
           Next &raquo;
         </a>
       </div>
