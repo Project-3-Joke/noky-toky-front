@@ -8,13 +8,13 @@ export default function RandomJoke() {
 
   useEffect(() => {
     axios
-      .get("https://v2.jokeapi.dev/joke/Any")
+      .get("https://v2.jokeapi.dev/joke/Programming?type=twopart")
       .then((response) => {
         console.log("response.data", response.data);
-          setJoke(response.data);
-        setIsLoading(false)
-      })
-      .catch(console.log());
+          setJoke(response.data)})
+      .catch( (error)=> console.log(error))
+      .then(()=> setIsLoading(false))
+      .catch( (error) => console.log(error));
   }, []);
   console.log("joke", Joke);
 

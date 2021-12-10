@@ -5,6 +5,10 @@ import { useContext } from "react";
 
 function HomePage() {
   const { isLoggedIn } = useContext(AuthContext);
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
     <div>
       <img style={{ width: 350 }} src={Logo} alt="noky-toky logo" />
@@ -13,24 +17,18 @@ function HomePage() {
           <h2>filter cathegory component*</h2>
           <RandomJoke />
           <div className="divIconHomePage">
-            <a href="#" className="previous">
-              &hearts; Like
-            </a>
-            <a href="#" className="next">
-              Next &raquo;
-            </a>
+            <button onClick={refreshPage}>&hearts; Like</button>
+            <button onClick={refreshPage}>Next &raquo;</button>
           </div>
-          <h2>Buy merch</h2>
+          <button onClick={refreshPage}>Buy merch</button>
         </>
       ) : (
         <>
           <RandomJoke />
           <div className="divIconHomePage">
-            <a href="#" className="next">
-              Next &raquo;
-            </a>
+            <button onClick={refreshPage}>Next &raquo;</button>
           </div>
-          <h2>Buy merch</h2>
+          <button onClick={refreshPage}>Buy merch</button>
         </>
       )}
     </div>
