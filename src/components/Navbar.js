@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "./../context/auth.context"; // <== IMPORT
+import cart from "./../Images/cart.png";
+import heart from "./../Images/heart.png";
+import userimg from "./../Images/user.png";
+import joke from "./../Images/joke.png";
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
@@ -10,26 +14,39 @@ function Navbar() {
   return (
     <nav>
       <Link to="/">
-        <button>&#127183;</button>
+        <img style={{ width: 20 }} src={joke} alt="joke random" />
+        <br />
+        <span>Jokes</span>
       </Link>
-      -
       {isLoggedIn ? (
         <>
           <Link to="/projects">
-            <button>&#9749;</button>
+            <img style={{ width: 20 }} src={heart} alt="Fav List" />
+            <br />
+            <span>FavList</span>
           </Link>
-          <button onClick={logOutUser}>&#10060;</button>
-          <span>{user.name}</span>
+          <Link to="/projects">
+            <img style={{ width: 20 }} src={cart} alt="shop cart" />
+            <br />
+            <span>WishList</span>
+          </Link>
+          <Link to="/signup">
+            <img style={{ width: 20 }} src={userimg} alt="user profile" />
+            <br />
+            <span>{user.name}</span>
+          </Link>
         </>
       ) : (
         <>
           <Link to="/signup">
-            {" "}
-            <button>&#9999;</button>{" "}
+            <span>&#9999;</span>
+            <br />
+            <span>SignUp</span>
           </Link>
           <Link to="/login">
-            {" "}
-            <button>&#11093;</button>{" "}
+            <span>&#11093;</span>
+            <br />
+            <span>LogIn</span>
           </Link>
         </>
       )}

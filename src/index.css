@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
@@ -7,12 +11,23 @@ a {
   color: black;
 }
 
-button,
 select {
   padding: 5px 10px;
   min-width: 50px;
   margin: 5px;
   font-size: 18px;
+}
+
+button {
+  align-items: center;
+  justify-content: center;
+  padding: 12;
+  border: none;
+  background-color: none;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.25;
+  color: black;
 }
 
 label {
@@ -29,15 +44,25 @@ textarea {
 }
 
 nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-around;
+  text-decoration: none;
   background: #515f7d;
   color: white;
-  padding: 0px 20px;
   box-shadow: 0px 1px 2px gray;
   width: 100%;
   margin-bottom: 15px;
-  padding: 5px;
+  padding: 20px;
   bottom: 0;
   position: fixed;
+}
+
+nav button {
+  border: none;
+  background-color: none;
 }
 
 nav li {
@@ -116,4 +141,14 @@ nav li {
   align-items: center;
   align-content: space-between;
   justify-content: space-around;
+}
+
+.LogoHomePage {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  width: 350px;
+}
+
+.HomePage {
+  padding-bottom: 150px;
 }

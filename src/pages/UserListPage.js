@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import AddProject from "../components/AddProject";
 import ProjectCard from "../components/ProjectCard";
+import { useContext } from "react"; // <== IMPORT
+import { AuthContext } from "./../context/auth.context"; // <== IMPORT
 
 const API_URI = process.env.REACT_APP_API_URI;
 
 function UserListPage() {
   const [user, setUser] = useState([]);
+  const { logOutUser } = useContext(AuthContext);
 
   const getAlluser = () => {
     // Get the token from the localStorage
@@ -34,6 +37,7 @@ function UserListPage() {
       {user.map((project) => (
         <ProjectCard key={project._id} {...project} />
       ))}
+      <button onClick={logOutUser}>&#10060;</button>
     </div>
   );
 }
