@@ -39,12 +39,12 @@ function Navbar() {
       ) : (
         <>
           <Link to="/signup">
-            <span>&#9999;</span>
+            <img style={{ width: 20 }} src={userimg} alt="Sign In" />
             <br />
             <span>SignUp</span>
           </Link>
           <Link to="/login">
-            <span>&#11093;</span>
+            <img style={{ width: 20 }} src={userimg} alt="Log In" />
             <br />
             <span>LogIn</span>
           </Link>
