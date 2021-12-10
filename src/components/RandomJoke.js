@@ -6,9 +6,12 @@ import { AuthContext } from "./../context/auth.context";
 import { useContext } from "react";
 
 export default function RandomJoke() {
-  const [joke, setJoke] = useState();
+  const [joke, setJoke] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { logOutUser } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
+
+  const [clickNext, setClickNext] = useState(true);
 
   useEffect(() => {
     axios
@@ -20,13 +23,15 @@ export default function RandomJoke() {
       .catch((error) => console.log(error))
       .then(() => setIsLoading(false))
       .catch((error) => console.log(error));
-  }, []);
+  }, [clickNext]);
   console.log("joke", joke);
 
-  const { isLoggedIn } = useContext(AuthContext);
-
   function refreshPage() {
-    // useEffect(false)
+    if (clickNext === true) {
+      setClickNext(false);
+    } else {
+      setClickNext(true);
+    }
   }
 
   return (
@@ -45,9 +50,10 @@ export default function RandomJoke() {
             <Link to="/signup">
               <button>&hearts; Like</button>
             </Link>
-            <Link to="/signup">
-              <button>Next &raquo;</button>
-            </Link>
+
+            <div className="divIconHomePage">
+              <button onClick={refreshPage}>Next &raquo; </button>
+            </div>
           </div>
           <Link to="/signup">
             <button className="BuyMerch">Buy merch</button>
@@ -69,8 +75,11 @@ export default function RandomJoke() {
               <button>Next &raquo;</button>
             </Link>
           </div>
+          <br />
           <Link to="/signup">
-            <button className="BuyMerch">Buy merch</button>
+            <button onClick={""} className="BuyMerch">
+              Buy merch
+            </button>
           </Link>
         </>
       )}
