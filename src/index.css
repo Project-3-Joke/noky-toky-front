@@ -21,13 +21,14 @@ select {
 button {
   align-items: center;
   justify-content: center;
-  padding: 12;
+  padding: 8px;
   border: none;
   background-color: none;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: bold;
   letter-spacing: 0.25;
   color: black;
+  border-radius: 4px;
 }
 
 label {
@@ -152,4 +153,15 @@ nav li {
 
 .HomePage {
   padding-bottom: 150px;
+}
+
+.BuyMerch {
+  width: 80%;
+  padding: 5px;
+  margin: 10px;
+  font-size: 23px;
+}
+
+.RandomJoke h2 {
+  margin-top: -9px;
 }
