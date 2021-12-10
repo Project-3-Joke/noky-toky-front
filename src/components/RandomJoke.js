@@ -50,7 +50,7 @@ export default function RandomJoke() {
             </Link>
           </div>
           <Link to="/signup">
-            <button>Buy merch</button>
+            <button className="BuyMerch">Buy merch</button>
           </Link>
           <br />
           <button onClick={logOutUser}>&#10060;</button>
@@ -65,10 +65,13 @@ export default function RandomJoke() {
             </div>
           )}
           <div className="divIconHomePage">
-            <button onClick={refreshPage}>Next &raquo;</button>
+            <Link to="/signup">
+              <button>Next &raquo;</button>
+            </Link>
           </div>
-          <br />
-          <button onClick={refreshPage}>Buy merch</button>
+          <Link to="/signup">
+            <button className="BuyMerch">Buy merch</button>
+          </Link>
         </>
       )}
     </div>
