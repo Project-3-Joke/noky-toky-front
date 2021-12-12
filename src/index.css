@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  background-color: #99ffb6;
 }
 
 a {
@@ -30,7 +31,31 @@ button {
   color: black;
   border-radius: 4px;
 }
-
+.button-refresh {
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+}
+.button-add-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.button-add-wrapper a {
+  text-decoration: none;
+}
+.button-add-wrapper button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 4px 6px 0px -2px #f139b3;
+  color: #f139b3;
+  background-color: #fffa7b !important;
+}
 label {
   width: 200px;
   display: block;
@@ -46,43 +71,171 @@ textarea {
 
 nav {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  align-content: space-between;
   justify-content: space-around;
   text-decoration: none;
-  background: #515f7d;
+  background: #112a85;
   color: white;
   box-shadow: 0px 1px 2px gray;
   width: 100%;
-  margin-bottom: 15px;
-  padding: 20px;
+  padding: 20px 0px;
   bottom: 0;
   position: fixed;
 }
 
-nav button {
-  border: none;
-  background-color: none;
+nav a {
+  /* opacity: 0.3; */
 }
 
-nav li {
-  list-style: none;
-  color: white;
-  font-size: 24px;
-  font-weight: 600;
+nav img {
+  width: 40px;
+}
+.RandomJoke,
+.FavJoke,
+.UserDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 5% 10% 0 10%;
+}
+
+.FavJoke {
+  margin-bottom: 150px;
+  margin-top: -20px;
 }
 
 .card {
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
+  height: 300px;
+  margin-top: 15px;
   margin-bottom: 20px;
-  background: #94a7c8;
-  border-radius: 4px;
+  background: #fffa7b;
+  border-radius: 8px;
+  box-shadow: 0px 8px 5px -2px rgba(0, 0, 0, 0.35);
+  font-family: "Comic Neue", cursive;
 }
 
+.cardItem {
+  width: 100%;
+}
+
+.cardList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: #fffa7b;
+  border-radius: 8px;
+  box-shadow: 0px 8px 5px -2px rgba(0, 0, 0, 0.35);
+  font-family: "Comic Neue", cursive;
+}
+
+.jokeCard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 95%;
+  width: 95%;
+  /* margin-top: 30px;
+  margin-bottom: 25px; */
+}
+
+.jokeCardList {
+  margin: 0 auto;
+  padding: 5px 0px;
+}
+.shop-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  font-family: "Comic Neue", cursive;
+}
+.slider-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0px;
+  /* border: 1px solid black; */
+  overflow: auto;
+  white-space: nowrap;
+  scroll-behavior: none;
+}
+.product-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 120px;
+  margin: 10px;
+  /* border: 1px solid red; */
+  white-space: pre-line;
+  height: 200px;
+  max-height: 200px;
+}
+.false-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 100px;
+  border: 1px solid blue;
+}
+.false-img img {
+  width: fit-content;
+}
+.product-container h5 {
+  margin: 0px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  color: #112a85;
+}
+.product-container p {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 0.7rem;
+  font-weight: bold;
+  /* border: 1px solid green; */
+  width: 100%;
+  height: 30px;
+  max-height: 30px;
+  text-align: left;
+}
+.shop-wrapper h4 {
+  margin: 0px;
+  font-size: 1.3rem;
+}
+.classification {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 20px;
+  align-self: center;
+}
+.classification img {
+  width: 20px;
+  height: 20px;
+}
 .ProjectCard h3::after {
   content: url("https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/icon-expand.png");
   margin-left: 5px;
@@ -139,16 +292,21 @@ nav li {
 
 .divIconHomePage {
   display: flex;
+  width: 100%;
   flex-direction: row;
   align-items: center;
-  align-content: space-between;
-  justify-content: space-around;
+  /* align-content: space-between; */
+  justify-content: space-between;
+  margin: 10px;
 }
 
 .LogoHomePage {
   margin-top: 20px;
   margin-bottom: 0px;
-  width: 350px;
+  width: 80%;
+  max-width: 450px;
+}
+.LogoPage {
 }
 
 .HomePage {
@@ -156,12 +314,28 @@ nav li {
 }
 
 .BuyMerch {
-  width: 80%;
-  padding: 5px;
-  margin: 10px;
-  font-size: 23px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+.BuyMerch a {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+.BuyMerch a button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  box-shadow: 4px 6px 0px -2px #6f0c9d;
+  width: 100%;
+  background-color: #f139b3;
+  color: #fffa7b;
+  font-size: 25px;
+  padding: 1.2rem 0;
 }
 
 .RandomJoke h2 {
-  margin-top: -9px;
+  margin-top: -5px;
 }
