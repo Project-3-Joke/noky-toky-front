@@ -16,6 +16,7 @@ import UserDetailsPage from "./pages/UserDetailsPage";
 import JokeFavPage from "./pages/JokeFavPage";
 import JokeList from "./pages/FavJokeList";
 import AddNewJoke from "./components/AddNewJoke";
+import EditNewjoke from "./pages/EditNewJoke";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <PrivateRoute exact path="/favourite/:id" component={JokeFavPage} />
         <PrivateRoute exact path="/cart/:id" component={CartPage} />
         <PrivateRoute exact path="/user/:id" component={UserDetailsPage} />
-        <PrivateRoute exact path="/user/edit/:id" component={EditProjectPage} />
+        <PrivateRoute exact path="/edit" component={EditNewjoke} />
         <AnonRoute exact path="/signup" component={SignupPage} />
         <AnonRoute exact path="/login" component={LoginPage} />
       </Switch>
