@@ -5,12 +5,16 @@ import { AuthContext } from "./../context/auth.context";
 import { useContext } from "react";
 import heartFav from "./../Images/Life.png";
 import next from "./../Images/Component 1.png";
+import { Link } from "react-router-dom";
 
 export default function JokeList() {
   const { user } = useContext(AuthContext);
   const [joke, setJoke] = useState([]);
   const storedToken = localStorage.getItem("authToken");
-  const requestBody = user;
+
+  const [clickNext, setClickNext] = useState(true);
+
+  //const requestBody = user;
   const API_URI = process.env.REACT_APP_API_URI;
 
   useEffect(() => {
@@ -33,8 +37,29 @@ export default function JokeList() {
     //     console.log("response.data", response.data);
     //     setJoke(response.data);
     //   });
-  }, []);
+  }, [clickNext]);
+
   console.log(joke.name);
+
+  function deleteJoke(id) {
+    // Get the token from the localStorage
+
+    const storedToken = localStorage.getItem("authToken");
+
+    // Send the token through the request "Authorization" Headers
+    axios
+      .delete(`${API_URI}/api/jokes/${id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => console.log("deleted joke"))
+      .catch((err) => console.log(err));
+
+    if (clickNext === true) {
+      setClickNext(false);
+    } else {
+      setClickNext(true);
+    }
+  }
 
   return (
     <div className="FavJoke">
@@ -48,12 +73,17 @@ export default function JokeList() {
             </div>
           </div>
           <div className="divIconHomePage">
-            <button onClick={""} className="button-refresh">
-              <img style={{ width: 30 }} src={heartFav} alt="Fav Button" />
+            <button
+              onClick={() => deleteJoke(oneJoke._id)}
+              className="button-refresh"
+            >
+              <img style={{ width: 30 }} src={heartFav} alt="Delete Button" />
             </button>
-            <button onClick={""} className="button-refresh">
-              <img style={{ width: 30 }} src={next} alt="Next Button" />
-            </button>
+            <Link to="/edit">
+              <button className="button-refresh">
+                <img style={{ width: 30 }} src={next} alt="Next Button" />
+              </button>
+            </Link>
           </div>
         </div>
       ))}

@@ -6,6 +6,8 @@ import { AuthContext } from "./../context/auth.context";
 import { useContext } from "react";
 import heartFav from "./../Images/Life.png";
 import next from "./../Images/Component 1.png";
+// import FlashMessage from "react-flash-message";
+// import { render } from "react-dom";
 
 export default function RandomJoke() {
   const [joke, setJoke] = useState({});
@@ -15,6 +17,12 @@ export default function RandomJoke() {
 
   const [clickNext, setClickNext] = useState(true);
   const API_URI = process.env.REACT_APP_API_URI;
+
+  // const Message = () => (
+  //   <FlashMessage duration={5000}>
+  //     <strong>I will disapper in 5 seconds!</strong>
+  //   </FlashMessage>
+  // );
 
   useEffect(() => {
     axios
@@ -55,6 +63,12 @@ export default function RandomJoke() {
         console.log("added to favorite", response.data);
       })
       .catch((error) => console.log(error));
+    if (clickNext === true) {
+      setClickNext(false);
+    } else {
+      setClickNext(true);
+    }
+    // render(Message, document.body);
   }
 
   return (
@@ -96,22 +110,23 @@ export default function RandomJoke() {
         <>
           {isLoading && <p>Joke loading...</p>}
           {!isLoading && (
-            <div className={"card"}>
-              <h1>{joke.setup}</h1>
-              <h1>{joke.delivery}</h1>
+            <div className="card">
+              <div className="jokeCard">
+                <h2>{joke.setup}</h2>
+                <h2>{joke.delivery}</h2>
+              </div>
             </div>
           )}
           <div className="divIconHomePage">
-            <Link to="/signup">
-              <button onClick={refreshPage}>Next &raquo; </button>
+            <button onClick={refreshPage} className="button-refresh">
+              <img style={{ width: 44 }} src={next} alt="Next Button" />
+            </button>
+          </div>
+          <div className="BuyMerch">
+            <Link to="/cart/:id">
+              <button>Buy merch</button>
             </Link>
           </div>
-          <br />
-          <Link to="/cart/:id">
-            <button onClick={""} className="BuyMerch">
-              Buy merch
-            </button>
-          </Link>
         </>
       )}
     </div>

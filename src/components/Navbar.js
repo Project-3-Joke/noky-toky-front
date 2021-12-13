@@ -53,14 +53,18 @@ function Navbar() {
       ) : (
         <>
           <Link to="/signup">
-            <img style={{ width: 35 }} src={userimg} alt="Sign In" />
-            <br />
-            <span>SignUp</span>
+            <img
+              style={{ width: 35, opacity: path === "/" ? 1 : 0.3 }}
+              src={userimg}
+              alt="Sign In"
+            />
           </Link>
           <Link to="/login">
-            <img style={{ width: 35 }} src={userimg} alt="Log In" />
-            <br />
-            <span>LogIn</span>
+            <img
+              style={{ width: 35, opacity: path === "/" ? 1 : 0.3 }}
+              src={userimg}
+              alt="Log In"
+            />
           </Link>
         </>
       )}
