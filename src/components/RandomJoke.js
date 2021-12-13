@@ -62,7 +62,7 @@ export default function RandomJoke() {
       {isLoggedIn ? (
         <>
           <div className="button-add-wrapper">
-            <Link to="/projects">
+            <Link to="/newjoke">
               <button>+ Add Joke</button>
             </Link>
           </div>

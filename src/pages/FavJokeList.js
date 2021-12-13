@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { AuthContext } from "./../context/auth.context";
@@ -10,19 +9,30 @@ import next from "./../Images/Component 1.png";
 export default function JokeList() {
   const { user } = useContext(AuthContext);
   const [joke, setJoke] = useState([]);
-  const API_URI = process.env.REACT_APP_API_URI;
   const storedToken = localStorage.getItem("authToken");
   const requestBody = user;
+  const API_URI = process.env.REACT_APP_API_URI;
 
   useEffect(() => {
     axios
-      .get(`${API_URI}/api/jokes`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .get(
+        `${API_URI}/api/jokes`,
+        { params: { userId: user._id } },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
       .then((response) => {
-        console.log("response.data", response.data);
+        // Reset the state
+        console.log(" List of Favorites ", response.data);
         setJoke(response.data);
-      });
+      })
+      .catch((error) => console.log(error));
+    //   .get(`${API_URI}/api/jokes`, requestBody, {
+    //     headers: { Authorization: `Bearer ${storedToken}` },
+    //   })
+    //   .then((response) => {
+    //     console.log("response.data", response.data);
+    //     setJoke(response.data);
+    //   });
   }, []);
   console.log(joke.name);
 

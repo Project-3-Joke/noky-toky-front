@@ -52,10 +52,10 @@ function AddNewJoke(props) {
   
   return (
     <div className="AddTask">
-      <h3>Add New Task</h3>
+      <h3>Add New Joke</h3>
       
       <form onSubmit={handleSubmit}>
-        <label>Setup:</label>
+        <label>Set Up:</label>
         <input
           type="text"
           name="setup"
@@ -63,7 +63,7 @@ function AddNewJoke(props) {
           onChange={(e) => setSetup(e.target.value)}
         />
 
-        <label>Delivery:</label>
+        <label>Punch Line:</label>
         <textarea
           type="text"
           name="delivery"

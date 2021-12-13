@@ -15,6 +15,7 @@ import AnonRoute from "./components/AnonRoute"; // <== IMPORT
 import UserDetailsPage from "./pages/UserDetailsPage";
 import JokeFavPage from "./pages/JokeFavPage";
 import JokeList from "./pages/FavJokeList";
+import AddNewJoke from "./components/AddNewJoke";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
         <Route exact path="/" component={HomePage} />
         {/* 👇 UPDATE THE EXISTING ROUTES 👇  */}
         <PrivateRoute exact path="/user" component={UserListPage} />
-        <Route exact path="/favourite" component={JokeList} />
+        <PrivateRoute exact path="/favourite" component={JokeList} />
+        <PrivateRoute exact path="/newjoke" component={AddNewJoke} />
         <PrivateRoute exact path="/favourite/:id" component={JokeFavPage} />
         <PrivateRoute exact path="/cart/:id" component={CartPage} />
         <PrivateRoute exact path="/user/:id" component={UserDetailsPage} />
