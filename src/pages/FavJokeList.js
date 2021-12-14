@@ -6,6 +6,9 @@ import { useContext } from "react";
 import heartFav from "./../Images/Life.png";
 import next from "./../Images/Component 1.png";
 import { Link } from "react-router-dom";
+import DeleteIcon from "./../Images/delete.png";
+import EditIcon from "./../Images/edit.png";
+
 
 export default function JokeList() {
   const { user } = useContext(AuthContext);
@@ -80,21 +83,25 @@ export default function JokeList() {
                 onClick={() => deleteJoke(oneJoke._id)}
                 className="button-refresh"
               >
-                <img style={{ width: 30 }} src={heartFav} alt="Delete Button" />
+                <img
+                  style={{ width: 30 }}
+                  src={DeleteIcon}
+                  alt="Delete Button"
+                />
               </button>
-
-              <button
+              {/* <button
                 onClick={() => deleteJoke(oneJoke._id)}
                 className="button-refresh"
               >
                 BUY
-                
-              </button>
-
-
+              </button> */}
               <Link to="/edit">
                 <button className="button-refresh">
-                  <img style={{ width: 30 }} src={next} alt="Next Button" />
+                  <img
+                    style={{ width: 30 }}
+                    src={EditIcon}
+                    alt="Edit Button"
+                  />
                 </button>
               </Link>
             </div>

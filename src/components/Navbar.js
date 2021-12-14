@@ -6,6 +6,8 @@ import heart from "./../Images/heart.png";
 import userimg from "./../Images/user.png";
 import joke from "./../Images/joke.png";
 import { useLocation } from "react-router-dom";
+import LogIn from "./../Images/login.png";
+import SignIn from "./../Images/signin.png";
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
@@ -55,14 +57,14 @@ function Navbar() {
           <Link to="/signup">
             <img
               style={{ width: 35, opacity: path === "/" ? 1 : 0.3 }}
-              src={userimg}
+              src={SignIn}
               alt="Sign In"
             />
           </Link>
           <Link to="/login">
             <img
               style={{ width: 35, opacity: path === "/" ? 1 : 0.3 }}
-              src={userimg}
+              src={LogIn}
               alt="Log In"
             />
           </Link>
