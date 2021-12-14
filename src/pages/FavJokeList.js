@@ -82,6 +82,16 @@ export default function JokeList() {
               >
                 <img style={{ width: 30 }} src={heartFav} alt="Delete Button" />
               </button>
+
+              <button
+                onClick={() => deleteJoke(oneJoke._id)}
+                className="button-refresh"
+              >
+                BUY
+                
+              </button>
+
+
               <Link to="/edit">
                 <button className="button-refresh">
                   <img style={{ width: 30 }} src={next} alt="Next Button" />
