@@ -3,6 +3,10 @@
 }
 
 body {
+  /* display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column; */
   margin: 0;
   background-color: #99ffb6;
   font-family: "Comic Neue", cursive;
@@ -355,4 +359,52 @@ nav img {
 
 .RandomJoke h2 {
   margin-top: -5px;
+}
+
+.ProductWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.productWrapper h1 {
+  font-size: 1.2rem;
+  margin: 0px;
+}
+.ProductContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fffa7b;
+  border-radius: 8px;
+  box-shadow: 0px 8px 5px -2px rgba(0, 0, 0, 0.35);
+  font-family: "Comic Neue", cursive;
+}
+
+.SubProductContainer {
+  width: 100%;
+  height: auto;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.productContainer img {
+  width: 100px;
+  height: 100px;
+}
+.productContainer p {
+  font-size: 1.1rem;
+}
+.productContainer h3 {
+  font-size: 1.4rem;
 }

@@ -1,5 +1,9 @@
 import react from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+//COMPONENTS
+import CartProduct from "./CartProduct";
+//IMG
 import StarBlue from "./../Images/Starblue.png";
 import StarYellow from "./../Images/staryellow.png";
 import heartFav from "./../Images/Life.png";
@@ -18,7 +22,7 @@ import myellow from "./../Images/mugs/mug5.png";
 import mblue from "./../Images/mugs/mug6.png";
 import mwhite from "./../Images/mugs/mug7.png";
 
-export default function RandomJoke({ title, type }) {
+export default function CartJoke({ title, type }) {
   const [hover, sethover] = useState(false);
   const stars = () => {
     for (let i = 0; i < 5; i++) {
@@ -139,7 +143,21 @@ export default function RandomJoke({ title, type }) {
           ? infoShirts.map((e, i) => (
               <div key={i} className="product-container">
                 <div className="false-img">
-                  <img src={e.img} />
+                  <Link
+                    to={{
+                      pathname: "/buy/:id",
+                      aboutProps: {
+                        image: e.img,
+                        price: e.price,
+                        description: e.description,
+                        type: type === "shirt"? "Shirt": "Mug" 
+                      },
+                    }}
+                  >
+                     <img src={e.img} />
+                  </Link>
+
+                  {/* <img src={e.img} /> */}
                 </div>
                 <h5>{e.price} </h5>
                 <p>{e.description}</p>
@@ -186,7 +204,19 @@ export default function RandomJoke({ title, type }) {
           : infoMug.map((e, i) => (
               <div key={i} className="product-container">
                 <div className="false-img">
-                  <img src={e.img} />
+                <Link
+                    to={{
+                      pathname: "/buy/:id",
+                      aboutProps: {
+                        image: e.img,
+                        price: e.price,
+                        description: e.description,
+                        type: type === "shirt"? "Shirt": "Mug" 
+                      },
+                    }}
+                  >
+                     <img src={e.img} />
+                  </Link>
                 </div>
                 <h5>{e.price} </h5>
                 <p>{e.description}</p>
