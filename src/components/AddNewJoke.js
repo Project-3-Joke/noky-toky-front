@@ -34,6 +34,7 @@ function AddNewJoke(props) {
         setSetup("");
         setDelivery("");
         setCategory("");
+        props.history.push("/favourite");
 
         // Invoke the callback function coming through the props
         // from the ProjectDetailsPage, to refresh the project details

@@ -18,12 +18,6 @@ export default function RandomJoke() {
   const [clickNext, setClickNext] = useState(true);
   const API_URI = process.env.REACT_APP_API_URI;
 
-  // const Message = () => (
-  //   <FlashMessage duration={5000}>
-  //     <strong>I will disapper in 5 seconds!</strong>
-  //   </FlashMessage>
-  // );
-
   useEffect(() => {
     axios
       .get("https://v2.jokeapi.dev/joke/Programming?type=twopart")
@@ -59,6 +53,12 @@ export default function RandomJoke() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
+        // const Message = () => (
+        //   <FlashMessage duration={5000}>
+        //     <strong>I will disapper in 5 seconds!</strong>
+        //   </FlashMessage>
+        // );
+        // render(Message, document.body);
         // Reset the state
         console.log("added to favorite", response.data);
       })
@@ -68,7 +68,6 @@ export default function RandomJoke() {
     } else {
       setClickNext(true);
     }
-    // render(Message, document.body);
   }
 
   return (
