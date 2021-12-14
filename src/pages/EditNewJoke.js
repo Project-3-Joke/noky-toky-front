@@ -57,7 +57,7 @@ function EditNewjoke(props) {
       .delete(`${API_URI}/api/jokes/${jokeId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then(() => props.history.push("/jokes"))
+      .then(() => props.history.push("/"))
       .catch((err) => console.log(err));
   };
 

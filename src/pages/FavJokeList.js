@@ -64,29 +64,32 @@ export default function JokeList() {
   return (
     <div className="FavJoke">
       <h1>Favourite List</h1>
-      {joke.map((oneJoke, index) => (
-        <div className="cardItem" key={index}>
-          <div key={oneJoke._id} className="cardList">
-            <div className="jokeCard">
-              <p className="jokeCardList">{oneJoke.setup}</p>
-              <p className="jokeCardList">{oneJoke.delivery}</p>
+      {joke
+        .slice(0)
+        .reverse()
+        .map((oneJoke, index) => (
+          <div className="cardItem" key={index}>
+            <div key={oneJoke._id} className="cardList">
+              <div className="jokeCard">
+                <p className="jokeCardList">{oneJoke.setup}</p>
+                <p className="jokeCardList">{oneJoke.delivery}</p>
+              </div>
+            </div>
+            <div className="divIconHomePage">
+              <button
+                onClick={() => deleteJoke(oneJoke._id)}
+                className="button-refresh"
+              >
+                <img style={{ width: 30 }} src={heartFav} alt="Delete Button" />
+              </button>
+              <Link to="/edit">
+                <button className="button-refresh">
+                  <img style={{ width: 30 }} src={next} alt="Next Button" />
+                </button>
+              </Link>
             </div>
           </div>
-          <div className="divIconHomePage">
-            <button
-              onClick={() => deleteJoke(oneJoke._id)}
-              className="button-refresh"
-            >
-              <img style={{ width: 30 }} src={heartFav} alt="Delete Button" />
-            </button>
-            <Link to="/edit">
-              <button className="button-refresh">
-                <img style={{ width: 30 }} src={next} alt="Next Button" />
-              </button>
-            </Link>
-          </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 }
