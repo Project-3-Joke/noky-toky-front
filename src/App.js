@@ -6,6 +6,7 @@ import UserListPage from "./pages/UserListPage";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 import EditProjectPage from "./pages/EditProjectPage";
 import LogoPage from "./components/Logo";
+import CartProduct from "./components/CartProduct";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import PrivateRoute from "./components/PrivateRoute";
@@ -31,6 +32,7 @@ function App() {
         <PrivateRoute exact path="/favourite/:id" component={JokeFavPage} />
         <PrivateRoute exact path="/cart/:id" component={CartPage} />
         <PrivateRoute exact path="/user/:id" component={UserDetailsPage} />
+        <PrivateRoute exact path="/buy/:id" component={CartProduct} />
         <PrivateRoute exact path="/edit" component={EditNewjoke} />
         <AnonRoute exact path="/signup" component={SignupPage} />
         <AnonRoute exact path="/login" component={LoginPage} />
