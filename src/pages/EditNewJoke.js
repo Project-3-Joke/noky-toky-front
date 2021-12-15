@@ -6,8 +6,6 @@ import { useContext } from "react";
 const API_URI = process.env.REACT_APP_API_URI;
 
 function EditNewjoke(props) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const jokeId = props.match.params.id;
   const [setup, setSetup] = useState("");
   const [delivery, setDelivery] = useState("");
@@ -24,16 +22,18 @@ function EditNewjoke(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
+        console.log("reponsefromget", response.data);
         const oneJoke = response.data;
-        setTitle(oneJoke.title);
-        setDescription(oneJoke.description);
+        setSetup(oneJoke.setup);
+        setDelivery(oneJoke.delivery);
+        setCategory(oneJoke.category);
       })
       .catch((error) => console.log(error));
   }, [jokeId]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, description };
+    const requestBody = { setup, delivery, category };
 
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
@@ -46,19 +46,6 @@ function EditNewjoke(props) {
       .then((response) => {
         props.history.push(`/favourite`);
       });
-  };
-
-  const deleteJoke = () => {
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem("authToken");
-
-    // Send the token through the request "Authorization" Headers
-    axios
-      .delete(`${API_URI}/api/jokes/${jokeId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then(() => props.history.push("/"))
-      .catch((err) => console.log(err));
   };
 
   return (
@@ -92,8 +79,6 @@ function EditNewjoke(props) {
 
         <button type="submit">Update Joke</button>
       </form>
-
-      <button onClick={deleteJoke}>Delete Joke</button>
     </div>
   );
 }
