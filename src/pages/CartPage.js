@@ -4,13 +4,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./../context/auth.context";
 import { useContext } from "react";
-import heartFav from "./../Images/Life.png";
-import next from "./../Images/Component 1.png";
 import CartSlider from "../components/CartSlider";
 export default function RandomJoke() {
   const [joke, setJoke] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { logOutUser } = useContext(AuthContext);
   const { isLoggedIn } = useContext(AuthContext);
 
   const [clickNext, setClickNext] = useState(true);

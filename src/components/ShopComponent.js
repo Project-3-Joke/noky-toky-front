@@ -11,6 +11,7 @@ const API_URI = process.env.REACT_APP_API_URI;
 const ShopComponent = ({ img, price, description, type }) => {
   const [size, setSize] = useState("");
   const { user } = useContext(AuthContext);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +36,7 @@ const ShopComponent = ({ img, price, description, type }) => {
         // Reset the state to clear the inputs
         // setType("");
         setSize("");
-
+        history.push(`/user/:id`);
         // props.history.push("/favourite");
 
         // Invoke the callback function coming through the props
