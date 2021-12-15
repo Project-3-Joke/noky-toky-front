@@ -6,23 +6,23 @@ import axios from "axios";
 
 function UserDetailsPage(props) {
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
-  const [joke, setJoke] = useState([]);
+  const [product, setProduct] = useState([]);
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
-
+  const [favlist, setFavList] = useState({});
   const API_URI = process.env.REACT_APP_API_URI;
 
   useEffect(() => {
     axios
       .get(
-        `${API_URI}/api/jokes`,
+        `${API_URI}/api/products`,
         { params: { userId: user._id } },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
         // Reset the state
-        console.log(" List of Favorites ", response.data);
-        setJoke(response.data);
+        console.log(" List of Products ", response.data);
+        setProduct(response.data);
       })
       .catch((error) => console.log(error));
     //   .get(`${API_URI}/api/jokes`, requestBody, {
@@ -32,6 +32,18 @@ function UserDetailsPage(props) {
     //     console.log("response.data", response.data);
     //     setJoke(response.data);
     //   });
+    axios
+      .get(
+        `${API_URI}/api/jokes`,
+        { params: { userId: user._id } },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then((favnumber) => {
+        // Reset the state
+        console.log(" List of Favorites ", favnumber.data);
+        setFavList(favnumber.data);
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   return (
@@ -40,23 +52,43 @@ function UserDetailsPage(props) {
         <>
           <div className="UserInfo">
             <h1>Details of User</h1>
-            <p>Name:</p>
-            <p>Email:</p>
-            <p>#Favourite's:</p>
-            <p>#Buy's:</p>
+            <p>
+              Name: <b>{user.name}</b>
+            </p>
+            <p>
+              Email: <b>{user.email}</b>
+            </p>
+            <p>
+              #Favourite's: <b>{favlist.length}</b>
+            </p>
+            <p>
+              #Buy's: <b>{product.length}</b>
+            </p>
           </div>
 
           <h2>History of buy</h2>
-          {joke
+          {product
             .slice(0)
             .reverse()
-            .map((oneJoke, index) => (
+            .map((oneProduct, index) => (
               <div className="cardItem" key={index}>
-                <div key={oneJoke._id} className="cardList">
-                  <div className="jokeCard">
-                    <p className="jokeCardList">{oneJoke.setup}</p>
+                <div key={oneProduct._id} className="cardList">
+                  <div className="buyCard">
+                    <p className="buyCardList">{oneProduct.type}</p>
+                    <img
+                      src={oneProduct.img}
+                      alt=""
+                      style={{ width: "50px" }}
+                    />
+                  </div>
+                  <div className="buyCard">
                     <p className="jokeCardList">
-                      <b>{oneJoke.delivery}</b>
+                      <b>{oneProduct.joke}</b>
+                    </p>
+                    <p className="jokeCardList">{oneProduct.size}</p>
+
+                    <p className="jokeCardList">
+                      <b>{oneProduct.delivery}</b>
                     </p>
                   </div>
                 </div>
