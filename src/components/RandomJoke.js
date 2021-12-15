@@ -22,14 +22,12 @@ export default function RandomJoke() {
     axios
       .get("https://v2.jokeapi.dev/joke/Programming?type=twopart")
       .then((response) => {
-        console.log("response.data", response.data);
         setJoke(response.data);
       })
       .catch((error) => console.log(error))
       .then(() => setIsLoading(false))
       .catch((error) => console.log(error));
   }, [clickNext]);
-  console.log("joke", joke);
 
   function refreshPage() {
     if (clickNext === true) {
@@ -40,9 +38,6 @@ export default function RandomJoke() {
   }
 
   function addFavs() {
-    console.log("Inside Fav User Info", user);
-    console.log("Inside Fav Joke Info", joke);
-
     const requestBody = { joke, user };
 
     // Get the token from the localStorage
@@ -53,14 +48,7 @@ export default function RandomJoke() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // const Message = () => (
-        //   <FlashMessage duration={5000}>
-        //     <strong>I will disapper in 5 seconds!</strong>
-        //   </FlashMessage>
-        // );
-        // render(Message, document.body);
-        // Reset the state
-        console.log("added to favorite", response.data);
+        const oneJoke = response.data;
       })
       .catch((error) => console.log(error));
     if (clickNext === true) {

@@ -11,10 +11,8 @@ export default function JokeList() {
   const { user } = useContext(AuthContext);
   const [joke, setJoke] = useState([]);
   const storedToken = localStorage.getItem("authToken");
-
   const [clickNext, setClickNext] = useState(true);
 
-  //const requestBody = user;
   const API_URI = process.env.REACT_APP_API_URI;
 
   useEffect(() => {
@@ -25,28 +23,14 @@ export default function JokeList() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
-        // Reset the state
-        console.log(" List of Favorites ", response.data);
         setJoke(response.data);
       })
       .catch((error) => console.log(error));
-    //   .get(`${API_URI}/api/jokes`, requestBody, {
-    //     headers: { Authorization: `Bearer ${storedToken}` },
-    //   })
-    //   .then((response) => {
-    //     console.log("response.data", response.data);
-    //     setJoke(response.data);
-    //   });
+
   }, [clickNext]);
 
-  console.log(joke.name);
-
   function deleteJoke(id) {
-    // Get the token from the localStorage
-
     const storedToken = localStorage.getItem("authToken");
-
-    // Send the token through the request "Authorization" Headers
     axios
       .delete(`${API_URI}/api/jokes/${id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -88,12 +72,6 @@ export default function JokeList() {
                   alt="Delete Button"
                 />
               </button>
-              {/* <button
-                onClick={() => deleteJoke(oneJoke._id)}
-                className="button-refresh"
-              >
-                BUY
-              </button> */}
               <Link to={`/edit/${oneJoke._id}`}>
                 <button className="button-refresh">
                   <img style={{ width: 25 }} src={EditIcon} alt="Edit Button" />

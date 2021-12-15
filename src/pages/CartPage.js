@@ -16,14 +16,12 @@ export default function RandomJoke() {
     axios
       .get("https://v2.jokeapi.dev/joke/Programming?type=twopart")
       .then((response) => {
-        console.log("response.data", response.data);
         setJoke(response.data);
       })
       .catch((error) => console.log(error))
       .then(() => setIsLoading(false))
       .catch((error) => console.log(error));
   }, [clickNext]);
-  console.log("joke", joke);
 
   function refreshPage() {
     if (clickNext === true) {

@@ -15,7 +15,6 @@ function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const location = useLocation();
   const path = location.pathname;
-  console.log(path);
   return (
     <nav>
       <Link to="/">

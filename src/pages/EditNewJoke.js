@@ -22,7 +22,6 @@ function EditNewjoke(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        console.log("reponsefromget", response.data);
         const oneJoke = response.data;
         setSetup(oneJoke.setup);
         setDelivery(oneJoke.delivery);

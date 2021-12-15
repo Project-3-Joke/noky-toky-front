@@ -43,7 +43,6 @@ function AddNewJoke(props) {
       .catch((error) => console.log(error));
   };
 
-  console.log("here i'm");
   return (
     <div className="AddTask">
       <h3>Add New Joke</h3>
