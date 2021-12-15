@@ -9,81 +9,72 @@ import { Link } from "react-router-dom";
 const API_URI = process.env.REACT_APP_API_URI;
 
 const ShopComponent = ({ img, price, description, type }) => {
-
-
- // const [type, setType] = useState("");
   const [size, setSize] = useState("");
-  const [color, setColor] = useState("");
   const { user } = useContext(AuthContext);
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-
-    console.log( "type", type);
-
 
     // We need the project id when creating the new task
     // const { projectId } = props;
     // Create an object representing the body of the POST request
-    
-    const requestBody = { img, type, size, description, color, user };
+
+    const requestBody = { img, type, size, description, user };
 
     // Get the token from the localStorage
-   
+
     const storedToken = localStorage.getItem("authToken");
 
     // Send the token through the request "Authorization" Headers
-   
+
     axios
       .post(`${API_URI}/api/products/new`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-       
         // Reset the state to clear the inputs
-       // setType("");
+        // setType("");
         setSize("");
-        setColor("");
-       
+
         // props.history.push("/favourite");
 
         // Invoke the callback function coming through the props
         // from the ProjectDetailsPage, to refresh the project details
         // props.refreshProject();
-      
       })
       .catch((error) => console.log(error));
   };
 
+  const handleChange = (event) => {
+    setSize(event.target.value);
+  };
+
   return (
-   
-<div >
-      
-      <img src={img} style={{ width: "100px", height: "100px" }} alt=""/>
-      <p>{description}</p>
-      <p>Price: {price} $</p>
+    <form className="ProductContainer" onSubmit={handleSubmit}>
+      <div className="SubProductContainer">
+        <img src={img} style={{ width: "50%", height: "50%" }} alt="" />
+        <p>{description}</p>
+        <p>Price: {price} $</p>
 
-      <form  onSubmit={handleSubmit}>
-          
-        {/* <label>Type:</label>
-        <input
-          type="text"
-          name="type"
-          value={type2}
-          onChange={(e) => setType(e.target.value)}
-        /> */}
+        <label>Size:</label>
+        <select name="size" onChange={handleChange}>
+          <option selected disabled>
+            {" "}
+            Choose Size
+          </option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">Extra Large</option>
+          <option value="giant">Giant</option>
+        </select>
 
-        <div >
+        <div className="button-add-card">
           <button type="submit"> Add to Shopping </button>
         </div>
-        
-        
-      </form>
       </div>
+    </form>
   );
-
-
 
   // return (
   //   <form className="ProductContainer">
@@ -94,7 +85,7 @@ const ShopComponent = ({ img, price, description, type }) => {
   //       <p>{description}</p>
   //       <p>Price: {price} $</p>
   //     </div>
-      
+
   //     <div className="buttonContainer">
   //       {type2 === "Shirt" ? (
   //         <select>
@@ -117,11 +108,6 @@ const ShopComponent = ({ img, price, description, type }) => {
   //     </div>
   //   </form>
   // );
-
-
-
-
-
 };
 
 export default ShopComponent;
