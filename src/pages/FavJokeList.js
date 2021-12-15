@@ -95,7 +95,7 @@ export default function JokeList() {
               >
                 BUY
               </button> */}
-              <Link to="/edit">
+              <Link to={`/edit/${oneJoke._id}`}>
                 <button className="button-refresh">
                   <img
                     style={{ width: 30 }}
