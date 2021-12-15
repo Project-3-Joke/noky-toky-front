@@ -5,7 +5,7 @@ const ShopComponent = ({ img, price, description, type }) => {
     <form className="ProductContainer">
       <div className="SubProductContainer">
         <h3>Shop {type}</h3>
-        <img src={img} style={{ width: "100px", height: "100px" }} />
+        <img src={img} style={{ width: "280px", height: "280px" }} />
         <p>{description}</p>
         <p>Price: {price} $</p>
       </div>
