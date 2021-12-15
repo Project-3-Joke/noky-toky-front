@@ -59,8 +59,7 @@ const ShopComponent = ({ img, price, description, type }) => {
 
         <label>Size:</label>
         <select name="size" onChange={handleChange}>
-          <option selected disabled>
-            {" "}
+          <option defaultValue>
             Choose Size
           </option>
           <option value="small">Small</option>

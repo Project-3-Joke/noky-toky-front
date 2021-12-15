@@ -13,7 +13,6 @@ function PrivateRoute(props) {
 
   // If the user is not logged in ❌
   if (!isLoggedIn) {
-    console.log("holi");
     return <Redirect to="/login" />;
   }
   // If the user is logged in ✅

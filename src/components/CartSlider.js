@@ -26,7 +26,6 @@ export default function CartJoke({ title, type }) {
   const [hover, sethover] = useState(false);
   const stars = () => {
     for (let i = 0; i < 5; i++) {
-      console.log("hola");
       console.log(
         <img
           onClick={() => {

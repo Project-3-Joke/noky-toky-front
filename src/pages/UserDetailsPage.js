@@ -21,17 +21,10 @@ function UserDetailsPage(props) {
       )
       .then((response) => {
         // Reset the state
-        console.log(" List of Products ", response.data);
         setProduct(response.data);
       })
       .catch((error) => console.log(error));
-    //   .get(`${API_URI}/api/jokes`, requestBody, {
-    //     headers: { Authorization: `Bearer ${storedToken}` },
-    //   })
-    //   .then((response) => {
-    //     console.log("response.data", response.data);
-    //     setJoke(response.data);
-    //   });
+    
     axios
       .get(
         `${API_URI}/api/jokes`,
@@ -40,7 +33,6 @@ function UserDetailsPage(props) {
       )
       .then((favnumber) => {
         // Reset the state
-        console.log(" List of Favorites ", favnumber.data);
         setFavList(favnumber.data);
       })
       .catch((error) => console.log(error));
