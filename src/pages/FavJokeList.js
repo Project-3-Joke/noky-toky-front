@@ -3,12 +3,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { AuthContext } from "./../context/auth.context";
 import { useContext } from "react";
-import heartFav from "./../Images/Life.png";
-import next from "./../Images/Component 1.png";
 import { Link } from "react-router-dom";
 import DeleteIcon from "./../Images/delete.png";
 import EditIcon from "./../Images/edit.png";
-
 
 export default function JokeList() {
   const { user } = useContext(AuthContext);
@@ -75,16 +72,18 @@ export default function JokeList() {
             <div key={oneJoke._id} className="cardList">
               <div className="jokeCard">
                 <p className="jokeCardList">{oneJoke.setup}</p>
-                <p className="jokeCardList">{oneJoke.delivery}</p>
+                <p className="jokeCardList">
+                  <b>{oneJoke.delivery}</b>
+                </p>
               </div>
             </div>
-            <div className="divIconHomePage">
+            <div className="divIconFavPage">
               <button
                 onClick={() => deleteJoke(oneJoke._id)}
                 className="button-refresh"
               >
                 <img
-                  style={{ width: 30 }}
+                  style={{ width: 25 }}
                   src={DeleteIcon}
                   alt="Delete Button"
                 />
@@ -97,11 +96,7 @@ export default function JokeList() {
               </button> */}
               <Link to={`/edit/${oneJoke._id}`}>
                 <button className="button-refresh">
-                  <img
-                    style={{ width: 30 }}
-                    src={EditIcon}
-                    alt="Edit Button"
-                  />
+                  <img style={{ width: 25 }} src={EditIcon} alt="Edit Button" />
                 </button>
               </Link>
             </div>

@@ -61,6 +61,32 @@ button {
   color: #f139b3;
   background-color: #fffa7b !important;
 }
+
+.button-add-card {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 5%;
+}
+.button-add-card a {
+  text-decoration: none;
+}
+.button-add-card button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 4px 6px 0px -2px #6f0c9d;
+  color: #fffa7b;
+  background-color: #f139b3 !important;
+}
+.button-add-card p {
+  width: 70%;
+}
+
 label {
   width: 200px;
   display: block;
@@ -105,7 +131,7 @@ nav img {
   width: 100%;
   max-width: 1250px;
   padding: 5% 10% 0 10%;
-  margin-bottom: 20%;
+  margin-bottom: 25%;
 }
 
 .FavJoke {
@@ -132,6 +158,8 @@ nav img {
 
 .cardItem {
   width: 100%;
+  display: flex;
+  margin-bottom: 5%;
 }
 
 .cardList {
@@ -273,6 +301,18 @@ nav img {
   font-family: "Comic Neue", cursive;
 }
 
+.EditProjectPage button,
+.AddProject button,
+.AddTask button,
+.SignupPage button,
+.LoginPage button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 4px 6px 0px -2px #6f0c9d;
+  color: #fffa7b;
+  background-color: #f139b3 !important;
+}
+
 .EditProjectPage {
   background-color: rgb(239, 196, 88);
 }
@@ -300,6 +340,16 @@ nav img {
   /* align-content: space-between; */
   justify-content: space-between;
   margin: 10px;
+}
+
+.divIconFavPage {
+  display: flex;
+  width: 10%;
+  flex-direction: column;
+  align-items: center;
+  /* align-content: space-between; */
+  justify-content: space-between;
+  margin: 5px;
 }
 
 .LogoHomePage {
@@ -380,7 +430,7 @@ nav img {
   justify-content: flex-start;
   align-items: flex-start;
   width: 90%;
-
+  margin-bottom: 25%;
   padding: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.3);
   background-color: #fffa7b;
@@ -408,4 +458,11 @@ nav img {
 }
 .productContainer h3 {
   font-size: 1.4rem;
+}
+
+.UserInfo {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
 }
